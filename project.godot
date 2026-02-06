@@ -18,7 +18,7 @@ config/name="PortalWithGunz"
 config/tags=PackedStringArray("multiplayer")
 run/main_scene="res://scenes/testWorld.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://el1jrwdua5i0"
+config/icon="/home/charliemccarthy/Downloads/549b019bc91c2cb38e44a6cf85e519db.jpg"
 
 [dotnet]
 
