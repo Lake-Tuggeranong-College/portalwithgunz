@@ -7,6 +7,9 @@ signal health_changed(health_value)
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
 
+# crouch handlers
+var _is_crouching: bool = false
+
 var health = 3
 
 #const SPEED = 10.0
@@ -36,6 +39,9 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		
+	if Input.is_action_just_pressed("crouch"):
+		toggle_crouch()
 	
 	if Input.is_action_just_pressed("shoot") \
 			and anim_player.current_animation != "shoot":
@@ -247,3 +253,10 @@ func clip_velocity(normal: Vector3, overbounce : float, delta : float) -> void:
 	var adjust := self.velocity.dot(normal)
 	if adjust < 0.0:
 		self.velocity -= normal * adjust
+		
+func toggle_crouch():
+	if _is_crouching == true:
+		print("UNCROUCH")
+	elif _is_crouching == false:
+		print("CROUCH")
+	_is_crouching = !_is_crouching
