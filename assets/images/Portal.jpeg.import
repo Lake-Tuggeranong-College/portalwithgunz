@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5538k02whram"
-path.s3tc="res://.godot/imported/images.jpeg-d37c12c1668a86802bccf7f5372b7281.s3tc.ctex"
+uid="uid://dxjyase7qsrvq"
+path="res://.godot/imported/Portal.jpeg-907c292974008af1f3f78595efd5b823.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/images.jpeg"
-dest_files=["res://.godot/imported/images.jpeg-d37c12c1668a86802bccf7f5372b7281.s3tc.ctex"]
+source_file="res://assets/images/Portal.jpeg"
+dest_files=["res://.godot/imported/Portal.jpeg-907c292974008af1f3f78595efd5b823.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

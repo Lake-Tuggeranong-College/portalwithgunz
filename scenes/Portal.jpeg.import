@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5538k02whram"
-path.s3tc="res://.godot/imported/images.jpeg-d37c12c1668a86802bccf7f5372b7281.s3tc.ctex"
+uid="uid://djqeftewutrn8"
+path.s3tc="res://.godot/imported/Portal.jpeg-042bc872a6f00bf7b071ea5a3b6887b8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/images.jpeg"
-dest_files=["res://.godot/imported/images.jpeg-d37c12c1668a86802bccf7f5372b7281.s3tc.ctex"]
+source_file="res://scenes/Portal.jpeg"
+dest_files=["res://.godot/imported/Portal.jpeg-042bc872a6f00bf7b071ea5a3b6887b8.s3tc.ctex"]
 
 [params]
 
