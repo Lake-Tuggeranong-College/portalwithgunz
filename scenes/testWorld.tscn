@@ -137,6 +137,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8926048, -24.037252)
 [node name="WoodenBoard2" parent="Environment" unique_id=1298312299 instance=ExtResource("5_myy55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6858497, -27.101051)
 
+[node name="WoodenBoard" parent="." unique_id=269418018 instance=ExtResource("5_myy55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.230011, 2.2330034, -7.1072836)
+
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
