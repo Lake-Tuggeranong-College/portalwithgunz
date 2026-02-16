@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjddue730snm"
-path.s3tc="res://.godot/imported/WoodenTexture.jpg-6191ed6fdd5f161f9e16a1abfd47f0d8.s3tc.ctex"
+uid="uid://wlimd2kgp8gm"
+path.s3tc="res://.godot/imported/flame_thrower_0.png-c046ef4d0933741f07aa8e0205c02168.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "f681e54f19448af6d265d620760219f9"
+}
 
 [deps]
 
-source_file="res://assets/images/Weapons/WoodenTexture.jpg"
-dest_files=["res://.godot/imported/WoodenTexture.jpg-6191ed6fdd5f161f9e16a1abfd47f0d8.s3tc.ctex"]
+source_file="res://assets/images/Weapons/Torch Gunz/flame_thrower_0.png"
+dest_files=["res://.godot/imported/flame_thrower_0.png-c046ef4d0933741f07aa8e0205c02168.s3tc.ctex"]
 
 [params]
 
