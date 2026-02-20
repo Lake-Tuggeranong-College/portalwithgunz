@@ -6,7 +6,7 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
-@onready var gc = $GrappleController
+
 # crouch handlers
 @export var crouch_anim_player: AnimationPlayer
 @export var crouch_shapecast: Node3D
@@ -64,7 +64,7 @@ func _physics_process(delta):
 	var input_dir := Input.get_vector("left", "right", "up", "down").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
 	
-	if is_on_floor() || gc.launched:
+	if is_on_floor():
 		if Input.is_action_just_pressed("jump") or (auto_bhop and Input.is_action_pressed("jump")):
 			self.velocity.y = JUMP_VELOCITY
 		_handle_ground_physics(delta)
@@ -77,7 +77,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	gc.retract()
+	#gc.retract()
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

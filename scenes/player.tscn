@@ -15,7 +15,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_67y6s"]
 [ext_resource type="PackedScene" uid="uid://laqog3huoq3b" path="res://rope.tscn" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bucl8rr8ce6je" path="res://models/HumanFallFlat.fbx" id="5_qlg0r"]
-[ext_resource type="Script" uid="uid://27muroark2gj" path="res://scenes/grapple_controller.gd" id="5_qlg0r"]
 
 [sub_resource type="Animation" id="Animation_jhgv2"]
 length = 0.001
@@ -215,10 +214,6 @@ draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
-[node name="Rope" parent="Camera3D" unique_id=1623134491 instance=ExtResource("4_tuyoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51158535, 0)
-visible = false
-
 [node name="CrouchAnimationPlayer" type="AnimationPlayer" parent="." unique_id=320549004]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
 
@@ -228,6 +223,7 @@ shape = SubResource("SphereShape3D_dqkch")
 target_position = Vector3(0, 0.5, 0)
 debug_shape_custom_color = Color(0, 0.57254905, 0, 1)
 
+[node name="HumanFallFlat" parent="." unique_id=601839824]
 [node name="State_Machine" type="Node" parent="." unique_id=1801626904 node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("5_smehm")
 CURRENT_STATE = NodePath("Idle_State")
@@ -265,8 +261,11 @@ offset_bottom = 62.0
 [node name="HumanFallFlat" parent="." unique_id=601839824 instance=ExtResource("5_qlg0r")]
 transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, 0, 1.1904991, 0)
 
+[node name="HumanFallFlat" parent="HumanFallFlat" unique_id=40740699 instance=ExtResource("5_qlg0r")]
+transform = Transform3D(0.0014661108, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, 0.0014661108, 0, 1.1928062, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1621161732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86798215, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2278812, 0.86798215, 0)
 shape = SubResource("CapsuleShape3D_qlg0r")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1397114300]
@@ -284,10 +283,6 @@ shape = SubResource("CapsuleShape3D_smehm")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1227652685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6285291, -0.062607765)
 shape = SubResource("CapsuleShape3D_ur7pv")
-[node name="GrappleController" type="Node" parent="." unique_id=364533085]
-script = ExtResource("5_qlg0r")
-ray = NodePath("../Camera3D/RayCast3D")
-rope = NodePath("../Camera3D/Rope")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="CrouchAnimationPlayer" to="." method="_on_crouch_animation_finished"]
