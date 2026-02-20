@@ -29,6 +29,9 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
+	
+	Global.player = self
+	
 	if not is_multiplayer_authority(): return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -148,7 +151,7 @@ var canThrow = true
 @export var walk_speed := 7.0
 @export var sprint_speed := 8.5
 @export var ground_accel := 14.0
-@export var ground_deccel :=5.0
+@export var ground_deccel := 5.0
 @export var ground_friction := 6.0
 
 const HEADBOB_MOVE_AMOUNT = 0.06   
