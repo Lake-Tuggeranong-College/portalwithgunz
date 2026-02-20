@@ -1,7 +1,7 @@
 extends Node
 
 @export var ray: RayCast3D
-
+@export var rope: Node3D
 @onready var player:CharacterBody3D = get_parent()
 
 @export var rest_length = 2.0
@@ -19,10 +19,10 @@ func _physics_process(delta: float) -> void:
 		
 	if launched:
 		handle_grapple(delta)
-	
+	update_rope()
 func launch():
 	if ray.is_colliding():
-		target= ray.get_collision_point()
+		target = ray.get_collision_point()
 		launched= true 
 
 func retract():
@@ -30,3 +30,31 @@ func retract():
 	
 func handle_grapple(delta: float):
 	var target_dir = player.global_position.direction_to(target)
+	var target_dist = player.global_position.distance_to(target)
+
+	var displacement = target_dist - rest_length
+	
+	var force = Vector3.ZERO
+	
+	if displacement > 0:
+		var spring_force_magnitude = stiffness * displacement
+		var spring_force = target_dir * spring_force_magnitude
+		
+		var vel_dot = player.velocity.dot(target_dir)
+		var damping = -damping * vel_dot * target_dir 
+		
+		force = spring_force + damping
+	
+	player.velocity += force * delta 
+
+func update_rope():
+	if !launched:
+		rope.visible = false 
+		return 
+		
+	rope.visible= true 
+	
+	var dist = player.global_position.distance_to(target)
+	
+	rope.look_at(target)
+	rope.scale = Vector3(1 ,1 , dist)
