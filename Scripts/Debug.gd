@@ -1,8 +1,7 @@
 class_name Debug extends Control
 
 var properties : Array
-var time = 0
-@onready var container = $UserInterface/DebugPanel
+@onready var container = $DebugPanel/VBoxContainer
 
 const fps_ms = 16
 
@@ -28,7 +27,7 @@ func add_debug_property(id: StringName, value, time_in_frames) -> void:
 		properties.append(id)
 
 func _physics_process(delta: float) -> void:
-	time += delta
+	var time = delta
 	Global.add_debug_property("Every 60 Frames", time, 60)
 	Global.add_debug_property("Every 30 Frames", time, 30)
 	Global.add_debug_property("Every 10 Frames", time, 10)

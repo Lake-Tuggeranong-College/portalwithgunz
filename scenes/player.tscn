@@ -261,6 +261,12 @@ offset_bottom = 40.0
 [node name="VBoxContainer" type="VBoxContainer" parent="Debug/DebugPanel" unique_id=362493263]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="Debug" unique_id=1482578808]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 40.0
+offset_bottom = 62.0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="CrouchAnimationPlayer" to="." method="_on_crouch_animation_finished"]
 [connection signal="animation_started" from="CrouchAnimationPlayer" to="." method="_on_crouch_animation_started"]
