@@ -29,6 +29,9 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
+	
+	Global.player = self
+	
 	if not is_multiplayer_authority(): return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -74,7 +77,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+	#gc.retract()
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -148,7 +151,7 @@ var canThrow = true
 @export var walk_speed := 7.0
 @export var sprint_speed := 8.5
 @export var ground_accel := 14.0
-@export var ground_deccel :=5.0
+@export var ground_deccel := 5.0
 @export var ground_friction := 6.0
 
 const HEADBOB_MOVE_AMOUNT = 0.06   
