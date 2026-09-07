@@ -3,6 +3,8 @@ extends Node
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
+#var external_anticheat_script = "res://FPSController/Player/anti_cheat.gd"
+#var external_anticheat_handler = null
 
 @onready var PlayerScene := preload("res://FPSController/Player/player.tscn")
 
@@ -13,6 +15,14 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+	
+	# anticheat path checker and instantiater
+	#if external_anticheat_script != "":
+		#var script_res = load(external_anticheat_script)
+		#if script_res:
+			#external_anticheat_handler = script_res.new()
+		#else:
+			#print("Warning: could not find script path for anticheat. Fix it bozo")
 #-------------------------
 #HOST
 #-------------------------
@@ -43,6 +53,10 @@ func _on_join_button_pressed():
 #-------------------------
 
 func _on_peer_connected(id):
+	# check if 
+	#if external_anticheat_handler and external_anticheat_handler.has_method("_on_peer_connected"):
+		#external_anticheat_handler._on_peer_connected(id)
+		#return
 	_spawn_player(id)
 
 func _on_peer_disconnected(id):
