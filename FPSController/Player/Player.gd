@@ -341,7 +341,8 @@ func show_emote_local(emote):
 			$EmoteBar.show()
 			$EmoteBar.texture = load("res://assets/images/mort-meme.png")
 		6.0:
-			pass
+			$EmoteBar.show()
+			$EmoteBar.texture = load("res://assets/images/chicken-rice-and-yoghurt-v0-7ria5b8ongi41.webp")
 		0:
 			pass
 	var timer := get_tree().create_timer(2.0)
@@ -370,7 +371,8 @@ func show_emote_remote(emote):
 			$EmoteBar.show()
 			$EmoteBar.texture = load("res://assets/images/mort-meme.png")
 		6.0:
-			pass
+			$EmoteBar.show()
+			$EmoteBar.texture = load("res://assets/images/chicken-rice-and-yoghurt-v0-7ria5b8ongi41.webp")
 		0:
 			pass
 	var timer := get_tree().create_timer(2.0)
