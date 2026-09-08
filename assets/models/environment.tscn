@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://m1wd27j0gvt6" path="res://assets/models/Lava.tscn" id="5_ha0tb"]
 [ext_resource type="PackedScene" uid="uid://cb71bca80dy2g" path="res://assets/models/settings_menu.tscn" id="6_nxrbl"]
 [ext_resource type="Script" uid="uid://cu4q12nc2xear" path="res://FPSController/Player/anti_cheat.gd" id="7_4pqxy"]
+[ext_resource type="PackedScene" uid="uid://dwjwma6bbsf4w" path="res://FPSController/WeaponsManagement/Weapons/portalGunz/throw_portal_gun.tscn" id="8_3vyp2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if5ix"]
 albedo_texture = ExtResource("3_3vyp2")
@@ -25,7 +26,7 @@ sky = SubResource("Sky_s85wv")
 [node name="Environment" unique_id=1851466389 instance=ExtResource("1_ub5pq")]
 script = ExtResource("2_4pqxy")
 
-[node name="Plane" parent="." index="0" unique_id=1138403792]
+[node name="Plane" parent="." index="0" unique_id=1986233116]
 surface_material_override/0 = SubResource("StandardMaterial3D_if5ix")
 surface_material_override/1 = SubResource("StandardMaterial3D_jylvv")
 
@@ -109,6 +110,9 @@ visible = false
 
 [node name="anti_cheat" type="Node" parent="." index="9" unique_id=1496734272]
 script = ExtResource("7_4pqxy")
+
+[node name="Throw_portal_gun" parent="." index="10" unique_id=1488973322 instance=ExtResource("8_3vyp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.747273, -35.016136)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]

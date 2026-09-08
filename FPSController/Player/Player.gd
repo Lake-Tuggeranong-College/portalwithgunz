@@ -122,7 +122,7 @@ var gravity = 19.6
 
 var texture = TextureRect
 
-var PortalThrow: PackedScene = preload("res://FPSController/WeaponsManagement/Weapons/portalGunz/throw_portal_gun.tscn")
+const PortalThrow: PackedScene = preload("res://FPSController/WeaponsManagement/Weapons/portalGunz/throw_portal_gun.tscn")
 
 func _enter_tree():
 	print(name)
@@ -297,8 +297,8 @@ func _physics_process(delta):
 		if is_grappling:
 			process_grapple(delta)
 
-		if Input.is_action_just_pressed("throw"):
-			rpc_id(1, "request_spawn_projectile", global_position)
+		if Input.is_action_just_pressed(throw_action):
+			throw_weapon()
 
 		# client → server input
 		Network.rpc_id(
@@ -418,13 +418,29 @@ func stop_grapple():
 	is_grappling = false
 	velocity *= 1.2
 
-@rpc("any_peer", "call_local", "reliable")
+
+# 1. Triggered on the client (e.g., when they press the throw button)
+func throw_weapon():
+	# Use Godot 4's callable syntax to send the position to the server
+	print("func_weapon called")
+	request_spawn_projectile.rpc_id(1, global_position)
+
+
+# 2. Executed ONLY on the server
+@rpc("any_peer", "reliable")
 func request_spawn_projectile(spawn_position: Vector2):
-	if not multiplayer.is_server():
-		return
-	var PortalgunIns = PortalThrow.instantiate()
-	PortalgunIns.position = $CameraHolder/Camera3D/Throwposs.global_position
-	get_tree().current_scene.add_child(PortalgunIns)
+	# Security check to ensure code only executes on the host/server
+	print("called instance")
+	if multiplayer.is_server():
+		print("Server: Spawning weapon at ", spawn_position)
+		
+		# Instantiate the weapon
+		var PortalgunIns = PortalThrow.instantiate()
+		PortalgunIns.global_position = spawn_position
+		
+		# CRITICAL: Add it to the node path monitored by your MultiplayerSpawner
+		# Replace GetNodePathToYourSpawnerContainer with your actual path
+		get_node("Throw_portal_gun").add_child(PortalgunIns)
 
 	var force = -18
 	var upDirection = 3.5

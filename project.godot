@@ -24,6 +24,7 @@ config/icon="uid://557yev33xedo"
 
 Global="*uid://c1xxttxh8shp6"
 Network="*uid://r8j6sp7df6v"
+AI_Director="*uid://bi0pamcrbsvyv"
 
 [dotnet]
 
