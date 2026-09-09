@@ -172,3 +172,7 @@ func _spawn_player(id):
 #
 #func _on_single_player_pressed() -> void:
 	#pass # Replace with function body.
+
+
+func _on_multiplayer_spawner_spawned(node: Node) -> void:
+	pass # Replace with function body.

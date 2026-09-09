@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bprr7kn8s2bom"]
 
+[ext_resource type="Script" uid="uid://demmf2hbrwaat" path="res://assets/AssetCode/world.gd" id="1_ietya"]
 [ext_resource type="Script" uid="uid://b6n6uoylj1gpp" path="res://Network/metadata.gd" id="1_njahq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
@@ -11,8 +12,10 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 [sub_resource type="NavigationMesh" id="NavigationMesh_g4v7s"]
 
 [node name="RoomPrefab" type="Node3D" unique_id=943471774]
+script = ExtResource("1_ietya")
 
-[node name="SpawnPoints" type="Node3D" parent="." unique_id=1813859341]
+[node name="Metadata" type="Node" parent="." unique_id=219482962]
+script = ExtResource("1_njahq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1665439115]
 mesh = SubResource("PlaneMesh_g4v7s")
@@ -25,6 +28,31 @@ shape = SubResource("ConcavePolygonShape3D_ennn7")
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=2045793134]
 navigation_mesh = SubResource("NavigationMesh_g4v7s")
 
-[node name="Metadata" type="Node" parent="." unique_id=219482962]
-script = ExtResource("1_njahq")
-metadata/difficulty_weight = 0.3
+[node name="Connectors" type="Node" parent="." unique_id=1948112049]
+
+[node name="Entry" type="Node3D" parent="Connectors" unique_id=1781974490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19579136, 4.9721813)
+
+[node name="Exit" type="Node3D" parent="Connectors" unique_id=1558671631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9990597)
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1813859341]
+
+[node name="enemy_spawns" type="Node3D" parent="SpawnPoints" unique_id=1981413183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0079517, 0.24523449, -3.205092)
+
+[node name="Spawn1" type="Node3D" parent="SpawnPoints/enemy_spawns" unique_id=610404154]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="SpawnPoints" unique_id=841333215]
+_spawnable_scenes = PackedStringArray("uid://xcjrjq5cbn7y", "uid://dwjwma6bbsf4w")
+spawn_path = NodePath("../..")
+
+[node name="resource_spawns" type="Node3D" parent="SpawnPoints" unique_id=1575858222]
+
+[node name="Spawn1" type="Node3D" parent="SpawnPoints/resource_spawns" unique_id=930651934]
+
+[node name="puzzle_spawns" type="Node3D" parent="SpawnPoints" unique_id=1514413593]
+
+[node name="Spawn1" type="Node3D" parent="SpawnPoints/puzzle_spawns" unique_id=498220912]
+
+[connection signal="spawned" from="SpawnPoints/MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
