@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgmq52el37r4"]
 
-[ext_resource type="Script" uid="uid://d5dy1s0koqy8" path="res://canvas_layer.gd" id="1_jwbto"]
+[ext_resource type="Script" uid="uid://d5dy1s0koqy8" path="res://Network/canvas_layer.gd" id="1_jwbto"]
 
 [node name="StartMenu" type="Node2D" unique_id=1564231402]
 
